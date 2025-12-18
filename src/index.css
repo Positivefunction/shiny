@@ -1,0 +1,488 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VANI AI Design System - Duolingo-inspired, child-friendly */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Core brand colors - Playful teal + coral */
+    --primary: 174 72% 46%;
+    --primary-light: 174 72% 56%;
+    --primary-dark: 174 72% 36%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Warm coral for rewards/CTAs */
+    --secondary: 16 85% 62%;
+    --secondary-light: 16 85% 72%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Accent - Purple for interactive elements */
+    --accent: 262 83% 58%;
+    --accent-light: 262 83% 68%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Success/XP - Bright green */
+    --success: 142 76% 46%;
+    --success-light: 142 76% 56%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Warning - Warm yellow */
+    --warning: 45 93% 58%;
+    --warning-foreground: 0 0% 20%;
+    
+    /* Error/Hearts */
+    --destructive: 0 72% 51%;
+    --destructive-light: 0 72% 61%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* XP Gold */
+    --xp: 43 96% 56%;
+    --xp-foreground: 0 0% 20%;
+    
+    /* Streak flame */
+    --streak: 25 95% 53%;
+    
+    /* Background layers */
+    --background: 200 20% 98%;
+    --background-alt: 200 20% 95%;
+    --foreground: 220 25% 20%;
+    
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 20%;
+    --card-hover: 200 20% 97%;
+    
+    /* Muted elements */
+    --muted: 200 15% 92%;
+    --muted-foreground: 220 15% 46%;
+    
+    /* Borders */
+    --border: 200 15% 88%;
+    --border-strong: 200 15% 78%;
+    --input: 200 15% 88%;
+    --ring: 174 72% 46%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 20%;
+    
+    /* Radius - Very rounded for playful feel */
+    --radius: 1rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+    --radius-full: 9999px;
+    
+    /* Shadows - Soft, playful */
+    --shadow-sm: 0 2px 4px hsl(220 25% 20% / 0.06);
+    --shadow-md: 0 4px 12px hsl(220 25% 20% / 0.08);
+    --shadow-lg: 0 8px 24px hsl(220 25% 20% / 0.12);
+    --shadow-xl: 0 16px 48px hsl(220 25% 20% / 0.16);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.3);
+    --shadow-success: 0 4px 16px hsl(var(--success) / 0.4);
+    --shadow-xp: 0 4px 16px hsl(var(--xp) / 0.5);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-dark)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(16 85% 52%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(262 83% 48%));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(142 76% 36%));
+    --gradient-xp: linear-gradient(135deg, hsl(var(--xp)), hsl(35 95% 50%));
+    --gradient-hero: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background-alt)) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(200 20% 98%) 100%);
+    
+    /* Role-specific colors */
+    --role-child: 174 72% 46%;
+    --role-therapist: 262 83% 58%;
+    --role-parent: 16 85% 62%;
+    
+    /* Sidebar (for therapist) */
+    --sidebar-background: 220 25% 16%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 174 72% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 25% 22%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 220 25% 24%;
+    --sidebar-ring: 174 72% 46%;
+    
+    /* Animation durations */
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+    --duration-bounce: 600ms;
+  }
+
+  .dark {
+    --primary: 174 72% 56%;
+    --primary-light: 174 72% 66%;
+    --primary-dark: 174 72% 46%;
+    
+    --background: 220 25% 10%;
+    --background-alt: 220 25% 14%;
+    --foreground: 0 0% 95%;
+    
+    --card: 220 25% 14%;
+    --card-foreground: 0 0% 95%;
+    --card-hover: 220 25% 18%;
+    
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 15% 65%;
+    
+    --border: 220 15% 22%;
+    --border-strong: 220 15% 30%;
+    --input: 220 15% 22%;
+    
+    --popover: 220 25% 14%;
+    --popover-foreground: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Nunito', system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Headings use Baloo 2 for playful feel */
+  h1, h2, h3, h4, h5, h6, .heading {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Playful button styles */
+  .btn-game {
+    @apply relative inline-flex items-center justify-center font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-200;
+    box-shadow: 0 4px 0 hsl(var(--primary-dark)), var(--shadow-md);
+    transform: translateY(0);
+  }
+  
+  .btn-game:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 hsl(var(--primary-dark)), var(--shadow-sm);
+  }
+  
+  .btn-game-primary {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: 0 4px 0 hsl(var(--primary-dark)), var(--shadow-md);
+  }
+  
+  .btn-game-secondary {
+    @apply bg-secondary text-secondary-foreground;
+    box-shadow: 0 4px 0 hsl(16 85% 52%), var(--shadow-md);
+  }
+  
+  .btn-game-success {
+    @apply bg-success text-success-foreground;
+    box-shadow: 0 4px 0 hsl(142 76% 36%), var(--shadow-md);
+  }
+  
+  /* Card styles */
+  .card-game {
+    @apply bg-card rounded-3xl p-6 relative overflow-hidden;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .card-game-hover {
+    @apply card-game transition-all duration-200 cursor-pointer;
+  }
+  
+  .card-game-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Quest node styles */
+  .quest-node {
+    @apply relative flex items-center justify-center w-16 h-16 rounded-full transition-all duration-300;
+  }
+  
+  .quest-node-locked {
+    @apply bg-muted text-muted-foreground;
+  }
+  
+  .quest-node-unlocked {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .quest-node-completed {
+    @apply bg-success text-success-foreground;
+    box-shadow: var(--shadow-success);
+  }
+  
+  /* XP badge */
+  .xp-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full font-bold text-sm;
+    background: var(--gradient-xp);
+    color: hsl(var(--xp-foreground));
+    box-shadow: var(--shadow-xp);
+  }
+  
+  /* Streak badge */
+  .streak-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full font-bold text-sm;
+    background: linear-gradient(135deg, hsl(var(--streak)), hsl(15 95% 45%));
+    color: white;
+  }
+  
+  /* Hearts display */
+  .heart {
+    @apply text-destructive;
+  }
+  
+  .heart-empty {
+    @apply text-muted;
+  }
+  
+  /* Progress bar */
+  .progress-game {
+    @apply relative h-4 bg-muted rounded-full overflow-hidden;
+  }
+  
+  .progress-game-fill {
+    @apply absolute inset-y-0 left-0 rounded-full transition-all duration-500 ease-out;
+    background: var(--gradient-success);
+  }
+  
+  /* Mic button */
+  .mic-button {
+    @apply relative w-24 h-24 rounded-full flex items-center justify-center transition-all duration-200;
+    background: var(--gradient-primary);
+    box-shadow: 0 6px 0 hsl(var(--primary-dark)), var(--shadow-lg);
+  }
+  
+  .mic-button:active {
+    transform: translateY(6px);
+    box-shadow: 0 0 0 hsl(var(--primary-dark)), var(--shadow-sm);
+  }
+  
+  .mic-button-recording {
+    @apply animate-pulse;
+    box-shadow: 0 0 0 8px hsl(var(--destructive) / 0.3), 0 6px 0 hsl(var(--destructive-light)), var(--shadow-lg);
+    background: var(--gradient-secondary);
+  }
+  
+  /* Bottom nav for mobile */
+  .bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-card border-t border-border z-50;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  
+  .bottom-nav-item {
+    @apply flex flex-col items-center justify-center gap-1 py-2 px-4 text-muted-foreground transition-colors duration-200;
+  }
+  
+  .bottom-nav-item-active {
+    @apply text-primary;
+  }
+  
+  /* Role badges */
+  .role-badge-child {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm bg-primary text-primary-foreground;
+  }
+  
+  .role-badge-therapist {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm bg-accent text-accent-foreground;
+  }
+  
+  .role-badge-parent {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm bg-secondary text-secondary-foreground;
+  }
+  
+  /* Safe area padding */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  /* Haptic feedback class for supported devices */
+  .haptic {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Glass effect */
+  .glass {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  /* Text gradient */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-xp {
+    background: var(--gradient-xp);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Animations */
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes star-burst {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-confetti {
+  animation: confetti 1s ease-out forwards;
+}
+
+.animate-star-burst {
+  animation: star-burst 0.8s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 390px) {
+  .text-responsive-sm {
+    font-size: 0.875rem;
+  }
+  .text-responsive-base {
+    font-size: 1rem;
+  }
+  .text-responsive-lg {
+    font-size: 1.125rem;
+  }
+}
+
+/* Ensure touch targets are at least 44px */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
